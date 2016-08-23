@@ -11,11 +11,12 @@ void Point::Draw()
 	cout << sym << endl;
 }
 
-
-Point::Point()
+Point::Point(int _x, int _y, char _sym)
 {
+	x = _x;
+	y = _y;
+	sym = _sym;
 }
-
 
 Point::~Point()
 {

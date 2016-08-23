@@ -13,7 +13,7 @@ public:
 
 	void Draw();
 
-	Point();
+	Point(int _x, int _y, char _sym);
 	~Point();
 };
 
