@@ -8,7 +8,7 @@ void Point::Draw()
 	COORD position = { x, y };
 	HANDLE hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleCursorPosition(hconsole, position);
-	cout << sym << endl;
+	cout << sym;
 }
 
 Point::Point(int _x, int _y, char _sym)

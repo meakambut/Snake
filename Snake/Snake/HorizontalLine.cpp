@@ -17,17 +17,6 @@ HorizontalLine::HorizontalLine(int xLeft, int xRight, int y, char sym)
 
 }
 
-void HorizontalLine::Draw()
-{
-	list<Point>::iterator p = pList.begin();
-
-	while (p != pList.end())
-	{
-		p->Draw();
-		p++;
-	}
-}
-
 
 HorizontalLine::~HorizontalLine()
 {

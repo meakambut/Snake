@@ -3,13 +3,11 @@
 #include "iostream"
 #include "list"
 #include "Point.h"
+#include "Figure.h"
 
-class VerticalLine
+class VerticalLine : public Figure
 {
 public:
-	list<Point> pList;
-
-	void Draw();
 
 	VerticalLine(int yBottom, int yTop, int x, char sym);
 	~VerticalLine();

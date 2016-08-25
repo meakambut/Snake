@@ -3,13 +3,11 @@
 #include "iostream"
 #include "list"
 #include "Point.h"
+#include "Figure.h"
 
-class HorizontalLine
+class HorizontalLine : public Figure
 {
 public:
-	list<Point> pList;
-
-	void Draw();
 
 	HorizontalLine(int xLeft, int xRight, int y, char sym);
 	~HorizontalLine();

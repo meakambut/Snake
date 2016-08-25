@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Figure.h" />
     <ClInclude Include="HorizontalLine.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="stdafx.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="VerticalLine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Figure.cpp" />
     <ClCompile Include="HorizontalLine.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Snake.cpp" />

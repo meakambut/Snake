@@ -6,18 +6,6 @@
 
 using namespace std;
 
-void VerticalLine::Draw()
-{
-	list<Point>::iterator p = pList.begin();
-
-	while (p != pList.end())
-	{
-		p->Draw();
-		p++;
-	}
-}
-
-
 VerticalLine::VerticalLine(int yBottom, int yTop, int x, char sym)
 {
 	for (int y = yBottom; y <= yTop; y++)
