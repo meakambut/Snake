@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 //#include "iostream"
-//#include "windows.h"
+#include "windows.h"
 #include "Point.h"
 #include "list"
 #include "HorizontalLine.h"
@@ -35,9 +35,21 @@ int main()
 
 	//drawing points
 	Point p(4, 5, '*');
-	//Direction direction = RIGHT;
 	Snake snake(p, 4, RIGHT);
 	snake.Draw();
+	Sleep(300);
+	snake.Move();
+	Sleep(300);
+	snake.Move();
+	snake.direction = DOWN;
+	Sleep(300);
+	snake.Move();
+	Sleep(300);
+	snake.Move();
+	Sleep(300);
+	snake.Move();
+	Sleep(300);
+	snake.Move();
 
 	cout << cin.get();
     return 0;

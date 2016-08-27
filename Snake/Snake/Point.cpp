@@ -19,6 +19,13 @@ Point::Point(int _x, int _y, char _sym)
 	sym = _sym;
 }
 
+Point::Point(int _x)
+{
+	x = _x;
+	y = _x;
+	sym = ' ';
+}
+
 void Point::Move(int offset, Direction direction)
 {
 	if (direction == RIGHT)
@@ -31,14 +38,19 @@ void Point::Move(int offset, Direction direction)
 	}
 	else if (direction == UP)
 	{
-		y += offset;
+		y -= offset;
 	}
 	else if (direction == DOWN)
 	{
-		y -= offset;
+		y += offset;
 	}
 }
 
+void Point::Clear()
+{
+	sym = ' ';
+	Draw();
+}
 Point::~Point()
 {
 }
