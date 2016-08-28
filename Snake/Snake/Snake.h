@@ -4,12 +4,12 @@
 class Snake :
 	public Figure
 {
-public:
 	Direction direction;
-
+public:
 	Snake(Point tail, int length, Direction direction);
 	void Move();
 	Point GetNextPoint();
+	void HandleKey(char a);
 	~Snake();
 };
 

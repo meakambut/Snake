@@ -43,6 +43,17 @@ Point Snake::GetNextPoint()
 	return nextPoint;
 }
 
+void Snake::HandleKey(char a)
+{
+	if (a == 72) //up
+		direction = UP;
+	else if (a == 75) //left
+		direction = LEFT;
+	else if (a == 77) //right
+		direction = RIGHT;
+	if (a == 80) //down
+		direction = DOWN;
+}
 Snake::~Snake()
 {
 }

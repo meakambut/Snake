@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-//#include "iostream"
 #include "windows.h"
 #include "Point.h"
 #include "list"
@@ -10,6 +9,7 @@
 #include "VerticalLine.h"
 #include "Direction.h"
 #include "Snake.h"
+#include "conio.h"
 
 using namespace std;
 
@@ -37,21 +37,22 @@ int main()
 	Point p(4, 5, '*');
 	Snake snake(p, 4, RIGHT);
 	snake.Draw();
-	Sleep(300);
-	snake.Move();
-	Sleep(300);
-	snake.Move();
-	snake.direction = DOWN;
-	Sleep(300);
-	snake.Move();
-	Sleep(300);
-	snake.Move();
-	Sleep(300);
-	snake.Move();
-	Sleep(300);
-	snake.Move();
+	Sleep(100);
 
-	cout << cin.get();
+	char a;
+	cout << endl;
+	while (true)
+	{
+		if (_kbhit())
+		{
+			a = _getch();
+			if (a == 27) //esc
+				break;
+			else snake.HandleKey(a);
+		}
+		snake.Move();
+		Sleep(100);
+	}
     return 0;
 }
 
