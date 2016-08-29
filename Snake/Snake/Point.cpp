@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Point.h"
 #include "Direction.h"
+#include "stdio.h"
+#include "conio.h"
 
 using namespace std;
 

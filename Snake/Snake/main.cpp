@@ -11,8 +11,14 @@
 #include "Snake.h"
 #include "conio.h"
 #include "FoodCreator.h"
+#include "stdio.h"
 
 using namespace std;
+
+void Draw(Figure figure)
+{
+	figure.Draw();
+}
 
 int main()
 {
@@ -22,6 +28,30 @@ int main()
 	SMALL_RECT src = { 0, 0, crd.X - 1, crd.Y - 1 };
 	SetConsoleWindowInfo(out_handle, true, &src);
 	SetConsoleScreenBufferSize(out_handle, crd);
+
+	//polymorphism testing
+	VerticalLine v1(0, 10, 5, '%');
+	//Draw(v1);
+
+	HorizontalLine h1(45, 65, 9, '!');
+	//h1.Draw();
+
+	Point p1(4, 5, '*');
+	Snake testsnake(p1, 4, LEFT);
+	Figure fSnake = testsnake;
+	//Draw(fSnake);
+
+	list<Figure> figures;
+	figures.push_back(fSnake);
+	figures.push_back(v1);
+	figures.push_back(h1);
+
+	list<Figure>::iterator pointer = figures.begin();
+	while (pointer != figures.end())
+	{
+		Draw(*pointer);
+		pointer++;
+	}
 
 	//drawing the frame
 	HorizontalLine topLine(0,79,0,'+');
@@ -69,6 +99,8 @@ int main()
 			Sleep(150);
 		}
 	}
+
+	//system("color 05");
 
 	//cout << cin.get();
 

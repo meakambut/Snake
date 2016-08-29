@@ -3,6 +3,8 @@
 #include "iostream"
 #include "windows.h"
 #include "Direction.h"
+#include "stdio.h"
+#include "conio.h"
 
 using namespace std;
 

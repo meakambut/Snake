@@ -11,7 +11,7 @@ protected:
 	list<Point> pList;
 
 public:
-	void Draw();
+	virtual void Draw();
 
 	Figure();
 	~Figure();
