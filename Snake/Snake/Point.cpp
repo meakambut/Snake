@@ -51,6 +51,11 @@ void Point::Clear()
 	sym = ' ';
 	Draw();
 }
+
+bool Point::match(Point p) //лучше переопределить =
+{
+	return p.x == this->x && p.y == this->y;
+}
 Point::~Point()
 {
 }

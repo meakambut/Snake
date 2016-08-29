@@ -10,6 +10,7 @@ public:
 	void Move();
 	Point GetNextPoint();
 	void HandleKey(char a);
+	bool Eat(Point food);
 	~Snake();
 };
 

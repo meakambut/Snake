@@ -10,6 +10,7 @@
 #include "Direction.h"
 #include "Snake.h"
 #include "conio.h"
+#include "FoodCreator.h"
 
 using namespace std;
 
@@ -23,17 +24,21 @@ int main()
 	SetConsoleScreenBufferSize(out_handle, crd);
 
 	//drawing the frame
-	HorizontalLine topLine(0,78,0,'+');
-	HorizontalLine bottomLine(0, 78, 24, '+');
+	HorizontalLine topLine(0,79,0,'+');
+	HorizontalLine bottomLine(0, 79, 24, '+');
 	VerticalLine leftLine(0, 24, 0, '+');
-	VerticalLine rightLine(0, 24, 78, '+');
+	VerticalLine rightLine(0, 23, 79, '+');
 
-	topLine.Draw();
-	leftLine.Draw();
-	bottomLine.Draw();
-	rightLine.Draw();
+	//topLine.Draw();
+	//leftLine.Draw();
+	//bottomLine.Draw();
+	//rightLine.Draw();
 
 	//drawing points
+	FoodCreator foodCreator(80, 25, '#');
+	Point food = foodCreator.CreateFood();
+	food.Draw();
+
 	Point p(4, 5, '*');
 	Snake snake(p, 4, RIGHT);
 	snake.Draw();
@@ -43,6 +48,14 @@ int main()
 	cout << endl;
 	while (true)
 	{
+		if (snake.Eat(food))
+		{
+			food.sym = '*';
+			food.Draw();
+			food = foodCreator.CreateFood();
+			food.Draw();
+		}
+
 		if (_kbhit())
 		{
 			a = _getch();
@@ -50,9 +63,15 @@ int main()
 				break;
 			else snake.HandleKey(a);
 		}
-		snake.Move();
-		Sleep(100);
+		else
+		{
+			snake.Move();
+			Sleep(150);
+		}
 	}
-    return 0;
+
+	//cout << cin.get();
+
+	return 0;
 }
 

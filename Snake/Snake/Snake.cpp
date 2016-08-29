@@ -38,7 +38,7 @@ Point Snake::GetNextPoint()
 	list<Point>::iterator p = pList.end();
 	p--;
 	Point head(p->x, p->y, p->sym);
-	Point nextPoint(head.x, head.y, head.sym);
+	Point nextPoint = head;
 	nextPoint.Move(1, direction);
 	return nextPoint;
 }
@@ -54,6 +54,20 @@ void Snake::HandleKey(char a)
 	if (a == 80) //down
 		direction = DOWN;
 }
+
+bool Snake::Eat(Point food)
+{
+	Point head = GetNextPoint();
+	if (head.match(food))
+	{
+		food.sym = head.sym;
+		pList.push_back(food);
+		return true;
+	}
+	else
+		return false;
+}
+
 Snake::~Snake()
 {
 }

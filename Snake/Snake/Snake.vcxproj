@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Figure.h" />
+    <ClInclude Include="FoodCreator.h" />
     <ClInclude Include="HorizontalLine.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Snake.h" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="FoodCreator.cpp" />
     <ClCompile Include="HorizontalLine.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="main.cpp" />

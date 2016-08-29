@@ -15,6 +15,7 @@ public:
 	void Move(int offset, Direction direction);
 	void Draw();
 	void Clear();
+	bool match(Point p);
 
 	Point(int _x, int _y, char _sym);
 	Point(int _x);
