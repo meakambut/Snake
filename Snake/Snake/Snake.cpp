@@ -68,6 +68,12 @@ bool Snake::Eat(Point food)
 		return false;
 }
 
+void Snake::test()
+{
+	cout << "Snake\n";
+}
+
+
 Snake::~Snake()
 {
 }

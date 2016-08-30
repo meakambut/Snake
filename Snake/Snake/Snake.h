@@ -11,6 +11,7 @@ public:
 	Point GetNextPoint();
 	void HandleKey(char a);
 	bool Eat(Point food);
+	void test();
 	~Snake();
 };
 

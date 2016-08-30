@@ -40,6 +40,11 @@ void HorizontalLine::Draw()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
 }
 
+void HorizontalLine::test()
+{
+	cout << "HorizontalLine\n";
+}
+
 HorizontalLine::~HorizontalLine()
 {
 }

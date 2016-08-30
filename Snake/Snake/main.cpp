@@ -15,10 +15,10 @@
 
 using namespace std;
 
-void Draw(Figure figure)
+/*void Draw(Figure figure)
 {
 	figure.Draw();
-}
+}*/
 
 int main()
 {
@@ -30,26 +30,37 @@ int main()
 	SetConsoleScreenBufferSize(out_handle, crd);
 
 	//polymorphism testing
-	VerticalLine v1(0, 10, 5, '%');
+	VerticalLine *vp, v1(0, 10, 5, '%');
+	vp = &v1;
 	//Draw(v1);
 
-	HorizontalLine h1(45, 65, 9, '!');
+	HorizontalLine *hp, h1(45, 65, 9, '!');
+	hp = &h1;
 	//h1.Draw();
 
+	/*Figure *t;
+	t = hp;
+	hp->Draw();*/
+
 	Point p1(4, 5, '*');
-	Snake testsnake(p1, 4, LEFT);
-	Figure fSnake = testsnake;
+	Snake *fp, fSnake(p1, 4, LEFT);
+	fp = &fSnake;
+	//Figure fSnake = testsnake;
 	//Draw(fSnake);
 
-	list<Figure> figures;
-	figures.push_back(fSnake);
-	figures.push_back(v1);
-	figures.push_back(h1);
+	list<Figure*> figures;
+	figures.push_back(hp);
+	figures.push_back(fp);
+	figures.push_back(vp);
+	
 
-	list<Figure>::iterator pointer = figures.begin();
+	//Figure *hp;
+
+	list<Figure*>::iterator pointer = figures.begin();
+
 	while (pointer != figures.end())
 	{
-		Draw(*pointer);
+		(*pointer)->Draw();
 		pointer++;
 	}
 

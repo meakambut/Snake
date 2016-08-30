@@ -10,6 +10,7 @@ class VerticalLine : public Figure
 public:
 
 	VerticalLine(int yBottom, int yTop, int x, char sym);
+	void test();
 	~VerticalLine();
 };
 
