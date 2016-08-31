@@ -149,6 +149,7 @@
     <ClInclude Include="Figure.h" />
     <ClInclude Include="FoodCreator.h" />
     <ClInclude Include="HorizontalLine.h" />
+    <ClInclude Include="Obstacles.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="stdafx.h" />
@@ -159,6 +160,7 @@
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="FoodCreator.cpp" />
     <ClCompile Include="HorizontalLine.cpp" />
+    <ClCompile Include="Obstacles.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Snake.cpp" />

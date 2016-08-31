@@ -12,6 +12,7 @@
 #include "conio.h"
 #include "FoodCreator.h"
 #include "stdio.h"
+#include "Obstacles.h"
 
 using namespace std;
 
@@ -29,37 +30,22 @@ int main()
 	SetConsoleWindowInfo(out_handle, true, &src);
 	SetConsoleScreenBufferSize(out_handle, crd);
 
-	//polymorphism testing
+
+	//obstacles identification
 	VerticalLine *vp, v1(0, 10, 5, '%');
 	vp = &v1;
 
 	HorizontalLine *hp, h1(45, 65, 9, '!');
 	hp = &h1;
 
-	/*Figure *t;
-	t = hp;
-	hp->Draw();*/
+	Snake *fp;
 
-	Point p1(4, 5, '*');
-	Snake *fp, fSnake(p1, 4, LEFT);
-	fp = &fSnake;
-
-	list<Figure*> figures;
-	figures.push_back(hp);
-	figures.push_back(fp);
-	figures.push_back(vp);
+	Obstacles obsList;
+	obsList.Add(hp);
 	
+	obsList.Add(vp);
 
-	//Figure *hp;
-
-	list<Figure*>::iterator pointer = figures.begin();
-
-	while (pointer != figures.end())
-	{
-		Draw(*pointer);
-		//(*pointer)->Draw();
-		pointer++;
-	}
+	obsList.Draw();
 
 	//drawing the frame
 	HorizontalLine topLine(0,79,0,'+');
@@ -72,20 +58,25 @@ int main()
 	//bottomLine.Draw();
 	//rightLine.Draw();
 
+
 	//drawing points
 	FoodCreator foodCreator(80, 25, '#');
 	Point food = foodCreator.CreateFood();
 	food.Draw();
 
-	Point p(4, 5, '*');
+	Point p(6, 5, '*');
 	Snake snake(p, 4, RIGHT);
 	snake.Draw();
 	Sleep(100);
 
 	char a;
 	cout << endl;
+	int i = 0;
 	while (true)
 	{
+		i = 1;
+		if (snake.IsCrashed(obsList))
+			break;
 		if (snake.Eat(food))
 		{
 			food.sym = '*';
@@ -103,13 +94,19 @@ int main()
 		}
 		else
 		{
+			fp = &snake;
+			obsList.Add(fp);
 			snake.Move();
 			Sleep(150);
+		}
+		i++;
+		if (i == 10)
+		{
+
 		}
 	}
 
 	//system("color 05");
-
 	//cout << cin.get();
 
 	return 0;

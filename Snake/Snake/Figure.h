@@ -12,7 +12,7 @@ protected:
 
 public:
 	virtual void Draw();
-	virtual void test() = 0;
+	bool IsCrashed(Point p);
 	Figure();
 	~Figure();
 };

@@ -1,8 +1,10 @@
 #include "stdafx.h"
-#include "Snake.h"
-#include "Direction.h"
-#include "Point.h"
 #include "list"
+#include "Obstacles.h"
+#include "Snake.h"
+#include "Point.h"
+#include "Direction.h"
+#include "Figure.h"
 
 using namespace std;
 
@@ -68,11 +70,15 @@ bool Snake::Eat(Point food)
 		return false;
 }
 
-void Snake::test()
+bool Snake::IsCrashed(Obstacles obsList)
 {
-	cout << "Snake\n";
-}
+	Point head = GetNextPoint();
 
+	if (obsList.IsCrashed(head))
+		return true;
+	else
+		return false;
+}
 
 Snake::~Snake()
 {

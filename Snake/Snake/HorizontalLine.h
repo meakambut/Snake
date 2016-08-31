@@ -15,7 +15,6 @@ public:
 	HorizontalLine(int xLeft, int xRight, int y, char sym);
 	void Draw();
 	void SetColor(int text, int background);
-	void test();
 	~HorizontalLine();
 };
 

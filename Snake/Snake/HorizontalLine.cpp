@@ -4,7 +4,6 @@
 #include "HorizontalLine.h"
 #include "Point.h"
 #include "stdio.h"
-#include "conio.h"
 #include "windows.h"
 
 using namespace std;
@@ -38,11 +37,6 @@ void HorizontalLine::Draw()
 		p++;
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
-}
-
-void HorizontalLine::test()
-{
-	cout << "HorizontalLine\n";
 }
 
 HorizontalLine::~HorizontalLine()

@@ -15,12 +15,6 @@ VerticalLine::VerticalLine(int yBottom, int yTop, int x, char sym)
 	}
 }
 
-void VerticalLine::test()
-{
-	cout << "VerticalLine\n";
-}
-
-
 VerticalLine::~VerticalLine()
 {
 }
