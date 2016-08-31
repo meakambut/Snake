@@ -26,7 +26,7 @@ void HorizontalLine::SetColor(int text, int background)
 	SetConsoleTextAttribute(handle, (WORD)((background << 4) | text));
 }
 
-void HorizontalLine::Draw()
+/*void HorizontalLine::Draw()
 {
 	list<Point>::iterator p = pList.begin();
 
@@ -37,7 +37,7 @@ void HorizontalLine::Draw()
 		p++;
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
-}
+}*/
 
 HorizontalLine::~HorizontalLine()
 {

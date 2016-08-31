@@ -32,59 +32,54 @@ int main()
 
 
 	//obstacles identification
-	VerticalLine *vp, v1(0, 10, 5, '%');
-	vp = &v1;
-
-	HorizontalLine *hp, h1(45, 65, 9, '!');
-	hp = &h1;
-
-	Snake *fp;
 
 	Obstacles obsList;
+	Snake *fp;
+
+	VerticalLine *vp, v1(1, 10, 5, '+');
+	vp = &v1;
+	obsList.Add(vp);
+
+	HorizontalLine *hp, h1(45, 65, 9, '+');
+	hp = &h1;
 	obsList.Add(hp);
-	
+
+	HorizontalLine topLine(0, 79, 0, '+');
+	hp = &topLine;
+	obsList.Add(hp);
+
+	HorizontalLine bottomLine(0, 78, 24, '+');
+	hp = &bottomLine;
+	obsList.Add(hp);
+
+	VerticalLine leftLine(0, 24, 0, '+');
+	vp = &leftLine;
+	obsList.Add(vp);
+
+	VerticalLine rightLine(0, 23, 79, '+');
+	vp = &rightLine;
 	obsList.Add(vp);
 
 	obsList.Draw();
 
-	//drawing the frame
-	HorizontalLine topLine(0,79,0,'+');
-	HorizontalLine bottomLine(0, 79, 24, '+');
-	VerticalLine leftLine(0, 24, 0, '+');
-	VerticalLine rightLine(0, 23, 79, '+');
-
-	//topLine.Draw();
-	//leftLine.Draw();
-	//bottomLine.Draw();
-	//rightLine.Draw();
-
-
+	
 	//drawing points
-	FoodCreator foodCreator(80, 25, '#');
+	FoodCreator foodCreator(80, 25, '*');
 	Point food = foodCreator.CreateFood();
 	food.Draw();
 
 	Point p(6, 5, '*');
 	Snake snake(p, 4, RIGHT);
 	snake.Draw();
+	fp = &snake;
+	obsList.Add(fp);
 	Sleep(100);
 
 	char a;
-	cout << endl;
-	int i = 0;
+	cout << endl;	
+
 	while (true)
 	{
-		i = 1;
-		if (snake.IsCrashed(obsList))
-			break;
-		if (snake.Eat(food))
-		{
-			food.sym = '*';
-			food.Draw();
-			food = foodCreator.CreateFood();
-			food.Draw();
-		}
-
 		if (_kbhit())
 		{
 			a = _getch();
@@ -94,16 +89,27 @@ int main()
 		}
 		else
 		{
-			fp = &snake;
-			obsList.Add(fp);
+			if (snake.IsCrashed(obsList))
+				break;
+			if (snake.Eat(food))
+			{
+				food.sym = '*';
+				food.Draw();
+				food = foodCreator.CreateFood();
+				while (snake.IsFoodInsideObstacles(obsList, food))
+				{
+					cout << "inside\n";
+					food = foodCreator.CreateFood();
+				}
+				food.Draw();
+			}
 			snake.Move();
 			Sleep(150);
 		}
-		i++;
-		if (i == 10)
-		{
 
-		}
+		obsList.Remove(fp);
+		fp = &snake;
+		obsList.Add(fp);
 	}
 
 	//system("color 05");

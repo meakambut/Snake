@@ -15,6 +15,7 @@ public:
 	void Move();
 	Point GetNextPoint();
 	bool IsCrashed(class Obstacles obsList);
+	bool IsFoodInsideObstacles(Obstacles obsList, Point food);
 	void HandleKey(char a);
 	bool Eat(Point food);
 	~Snake();

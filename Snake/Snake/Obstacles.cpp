@@ -13,6 +13,11 @@ void Obstacles::Add(Figure *p)
 	fList.push_back(p);
 }
 
+void Obstacles::Remove(Figure *p)
+{
+	fList.pop_back();
+}
+
 void Obstacles::Draw()
 {
 	list<Figure*>::iterator pointer = fList.begin();

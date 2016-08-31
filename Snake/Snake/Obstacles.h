@@ -14,6 +14,7 @@ public:
 	void Add(Figure *p);
 	void Draw();
 	bool IsCrashed(Point p);
+	void Remove(Figure *p);
 	Obstacles();
 	~Obstacles();
 };

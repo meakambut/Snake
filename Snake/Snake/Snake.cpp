@@ -48,13 +48,37 @@ Point Snake::GetNextPoint()
 void Snake::HandleKey(char a)
 {
 	if (a == 72) //up
+	{
+		if (direction == DOWN)
+		{
+			pList.reverse();
+		}
 		direction = UP;
+	}
 	else if (a == 75) //left
+	{
+		if (direction == RIGHT)
+		{
+			pList.reverse();
+		}
 		direction = LEFT;
+	}
 	else if (a == 77) //right
+	{
+		if (direction == LEFT)
+		{
+			pList.reverse();
+		}
 		direction = RIGHT;
+	}
 	if (a == 80) //down
+	{
+		if (direction == UP)
+		{
+			pList.reverse();
+		}
 		direction = DOWN;
+	}
 }
 
 bool Snake::Eat(Point food)
@@ -75,6 +99,14 @@ bool Snake::IsCrashed(Obstacles obsList)
 	Point head = GetNextPoint();
 
 	if (obsList.IsCrashed(head))
+		return true;
+	else
+		return false;
+}
+
+bool Snake::IsFoodInsideObstacles(Obstacles obsList, Point food)
+{
+	if (obsList.IsCrashed(food))
 		return true;
 	else
 		return false;
